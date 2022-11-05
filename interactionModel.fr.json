@@ -1,0 +1,226 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "sub sonic",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AskSonicShuffleLibraryIntent",
+                    "slots": [],
+                    "samples": [
+                        "joue de la musique",
+                        "joue de la musique aléatoire"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StartOverIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AskSonicTrackInformationIntent",
+                    "slots": [],
+                    "samples": [
+                        "quelle est cette chanson",
+                        "quelle est cette musique",
+                        "c'est quoi cette chanson",
+                        "c'est quoi cette musique",
+                        "c'est quoi ça",
+                        "qu'est ce que c'est",
+                        "qu'est ce que c'est que cette chanson",
+                        "qu'est ce que c'est que cette musique",
+                        "qui chante ça",
+                        "qui chante cette chanson",
+                        "qui chante cette musique"
+                    ]
+                },
+                {
+                    "name": "AskSonicDetailedTrackInformationIntent",
+                    "slots": [],
+                    "samples": [
+                        "détails de la chanson",
+                        "quel est l'album de cette chanson",
+                        "quel album"
+                    ]
+                },
+                {
+                    "name": "AskSonicStarIntent",
+                    "slots": [],
+                    "samples": [
+                        "like cette chanson",
+                        "j'aime cette chanson"
+                    ]
+                },
+                {
+                    "name": "AskSonicStarPreviousIntent",
+                    "slots": [],
+                    "samples": [
+                        "j'aimais la chanson précédente",
+                        "like la chanson précédente"
+                    ]
+                },
+                {
+                    "name": "AskSonicPlayArtistIntent",
+                    "slots": [
+                        {
+                            "name": "artist",
+                            "type": "AMAZON.MusicGroup",
+                            "samples": [
+                                "{artist}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "joue de la musique de {artist}",
+                        "joue l'artiste {artist}",
+                        "joue des chansons de {artist}",
+                        "lance un album de {artist}"
+                    ]
+                },
+                {
+                    "name": "AskSonicListArtistAlbumsIntent",
+                    "slots": [
+                        {
+                            "name": "artist",
+                            "type": "AMAZON.MusicGroup",
+                            "samples": [
+                                "{artist}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "donne moi les albums de {artist}",
+                        "liste les albums de {artist}"
+                    ]
+                },
+                {
+                    "name": "AskSonicPlayAlbumIntent",
+                    "slots": [
+                        {
+                            "name": "album",
+                            "type": "AMAZON.MusicAlbum",
+                            "samples": [
+                                "{album}"
+                            ]
+                        },
+                        {
+                            "name": "artist",
+                            "type": "AMAZON.MusicGroup"
+                        }
+                    ],
+                    "samples": [
+                        "joue l'album {album} de {artist}",
+                        "joue {album} {artist}",
+                        "joue l'album {album}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "AMAZON.MusicAlbum",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Yellowcard"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "AskSonicPlayArtistIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "artist",
+                            "type": "AMAZON.MusicGroup",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-AskSonic.IntentSlot-Artist"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "AskSonicPlayAlbumIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "album",
+                            "type": "AMAZON.MusicAlbum",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-AskSonic.IntentSlot-Album"
+                            }
+                        },
+                        {
+                            "name": "artist",
+                            "type": "AMAZON.MusicGroup",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Intent-AskSonic.IntentSlot-Artist",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Quel artiste dois-je jouer ?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-AskSonic.IntentSlot-Album",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Quel album dois-je jouer ?"
+                    }
+                ]
+            }
+        ]
+    }
+}
