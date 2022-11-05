@@ -1,0 +1,25 @@
+launch_text: "C'est parti !"
+launch_title: "Bienvenue sur Asksonic"
+launch_content: "C'est parti !"
+
+pausing: "Pause"
+resuming: "Reprise"
+stopping: "Arrêt"
+okay: "Ok"
+
+playing_library: "Joue de la musique"
+playing_artist: "Joue la musique de {{ artist }}"
+playing_album: "Joue l'album {{ album }} {{ 'de {}'.format(artist) if artist }}"
+
+current_track: "C'est "
+track_information: "C'est {{ title }} de {{ artist }}"
+detailed_track_information: "C'est {{ title }} de {{ artist }} de l'album {{ album }}"
+
+artist_albums: "J'ai trouvé ces albums de {{ artist }}: {{ album_titles }}"
+
+intent_not_supported: "Désolé je ne peux pas faire ça pour le moment"
+nothing_playing: "Il n'y a pas de musique en train de jouer"
+no_previous_track: "Il n'y avait pas de musique avant"
+end_of_queue: "Il n'y a plus de musique en attente"
+artist_not_found: "Je n'ai pas trouvé l'artiste {{ artist }}"
+album_not_found: "Je n'ai pas trouvé l'album {{ album }} {{ 'de {}'.format(artist) if artist }}"
